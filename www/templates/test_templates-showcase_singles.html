@@ -1,0 +1,31 @@
+	<ion-view view-title=" {{ showcase.title }}" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"  scroll="true"   id="page-showcase_singles" class="page-showcase_singles">
+		
+			<ion-refresher pulling-text="Pull to refresh..."  on-refresh="doRefresh()"></ion-refresher>
+			<div class="list ">
+
+					<!-- id -->
+					<!-- ./id -->
+
+					<!-- heading-1 -->
+					<div class="item item-divider"  ng-bind-html="showcase.title | to_trusted">{{showcase.title}}</div>
+					<!-- ./heading-1 -->
+
+					<!-- images -->
+					<div class="item noborder"><img class="full-image" ng-src="{{showcase.avatar}}"  zoom-view="true" zoom-src="{{showcase.avatar}}"/></div>
+					<!-- ./images -->
+
+					<!-- to_trusted -->
+					<div class="item item-text-wrap noborder to_trusted {{ fontsize }}" ng-bind-html="showcase.content | strHTML"></div>
+					<!-- ./to_trusted -->
+
+					<!-- text -->
+					<div class="item"><span class="subdued" >{{showcase.text}}</span></div>
+					<!-- ./text -->
+			</div>
+			<br/><br/><br/>
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

@@ -1,0 +1,39 @@
+	<ion-view view-title=" Tables" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"   id="page-tables" class=" page-tables">
+		
+			<!-- code refresh -->
+			<ion-refresher pulling-text="{{ 'Pull to refresh...' | translate }}"  on-refresh="doRefresh()"></ion-refresher>
+			<!-- ./code refresh -->
+			
+
+
+			<ion-list class="card">
+				<div class="item item-input">
+					<i class="icon ion-search placeholder-icon"></i>
+					<input type="search" ng-model="filter_tables" placeholder="{{ 'Search' | translate }}" aria-label="filter tables" />
+				</div>
+			</ion-list>
+			<div class="card">
+				<table class="table table-striped">
+					<tbody>
+						<tr ng-repeat="item in tables | filter:filter_tables as results" ng-init="$last ? fireEvent() : null"  >
+						<td>{{item.text}}</td>
+						</tr>
+						<tr ng-if="results.length == 0" >
+							<td>{{ 'No results found...!' | translate }}</td>
+						</tr>
+					</tbody>
+				</table>
+			<!-- code infinite scroll -->
+				<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="onInfinite()" distance="5px" ng-if="hasMoreData"></ion-infinite-scroll>
+			<!-- ./code infinite scroll -->
+
+
+			</div>
+
+
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

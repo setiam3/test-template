@@ -1,0 +1,37 @@
+	<ion-view view-title=" {{ galerie.name }}" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"  scroll="true"   id="page-galerie_singles" class="page-galerie_singles">
+		
+			<ion-refresher pulling-text="Pull to refresh..."  on-refresh="doRefresh()"></ion-refresher>
+			<div class="hero slide-up positive-900-bg" style="background-image: url('data/images/background/bg0.jpg');">
+				<div class="padding-horizontal padding-bottom content">
+					<img alt="" class="avatar" ng-src="{{galerie.image}}" />
+					<h3><a class="light" ng-bind-html="galerie.name | strHTML">{{ galerie.name }}</a></h3>
+					<a class="button button-colorful ink-dark" data-ink-opacity=".8" ng-click="openURL(galerie.link)">link</a>
+				</div>
+			</div>
+			<div class="list card">
+
+					<!-- heading-1 -->
+					<div class="item item-divider"  ng-bind-html="galerie.name | to_trusted">{{galerie.name}}</div>
+					<!-- ./heading-1 -->
+
+					<!-- to_trusted -->
+					<div class="item item-text-wrap noborder to_trusted {{ fontsize }}" ng-bind-html="galerie.description | strHTML"></div>
+					<!-- ./to_trusted -->
+
+					<!-- images -->
+					<!-- ./images -->
+
+					<!-- link -->
+					<!-- ./link -->
+
+					<!-- rating -->
+					<div class="item noborder text-right"><rating ng-model="galerie.rating" max="rating.max"></rating></div>
+					<!-- ./rating -->
+			</div>
+			<br/><br/><br/>
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

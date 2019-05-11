@@ -1,0 +1,52 @@
+	<ion-view view-title=" Two Icon" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"   id="page-two_icon" class=" page-two_icon">
+		
+			<!-- code refresh -->
+			<ion-refresher pulling-text="{{ 'Pull to refresh...' | translate }}"  on-refresh="doRefresh()"></ion-refresher>
+			<!-- ./code refresh -->
+			
+
+			<!-- code search -->
+			<ion-list class="card list" >
+				<div class="item item-input">
+					<i class="icon ion-search placeholder-icon"></i>
+					<input type="search" ng-model="filter_two_icons" placeholder="{{ 'Search' | translate }}" aria-label="filter two_icons" />
+				</div>
+			</ion-list>
+			<!-- ./code search -->
+
+
+			<!-- code listing -->
+			<div class="card list light-bg animate-none">
+				<a class="item item-icon-left ink-colorful item-icon-right "  ng-repeat="item in two_icons | filter:filter_two_icons as results" ng-init="$last ? fireEvent() : null" ng-href="#/test_templates/two_icon_singles/{{item.ID}}" >
+					<i class="icon  colorful {{item.Icon}}"></i>
+					<span ng-bind-html="item.Title | to_trusted"></span>
+						<span class="item-note item-text-wrap" >
+						text{{item.Text}}
+						</span>
+					<i class="icon ion-arrow-right-c"></i>
+				</a>
+			</div>
+			<!-- ./code listing -->
+
+
+			<!-- code infinite scroll -->
+			<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="onInfinite()" distance="5px" ng-if="hasMoreData"></ion-infinite-scroll>
+			<!-- ./code infinite scroll -->
+
+
+			<!-- code search result not found -->
+			<ion-list ng-if="results.length == 0" class="list card">
+				<div class="item"  >
+					<p>{{ 'No results found...!' | translate }}</p>
+				</div>
+			</ion-list>
+			<!-- ./code search result not found -->
+
+
+
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

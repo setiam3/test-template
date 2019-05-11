@@ -1,0 +1,34 @@
+	<ion-view view-title=" {{ two_icon.Title }}" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"  scroll="true"   id="page-two_icon_singles" class="page-two_icon_singles">
+		
+			<ion-refresher pulling-text="Pull to refresh..."  on-refresh="doRefresh()"></ion-refresher>
+			<div class="list ">
+
+					<!-- heading-1 -->
+					<div class="item item-divider"  ng-bind-html="two_icon.Title | to_trusted">{{two_icon.Title}}</div>
+					<!-- ./heading-1 -->
+
+					<!-- heading-2 -->
+					<div class="item item-divider" >{{two_icon.Heading_2}}</div>
+					<!-- ./heading-2 -->
+
+					<!-- to_trusted -->
+					<div class="item item-text-wrap noborder to_trusted {{ fontsize }}" ng-bind-html="two_icon.content | strHTML"></div>
+					<!-- ./to_trusted -->
+
+					<!-- audio -->
+					<div class="item noborder" ng-if="two_icon.audio">
+					<audio controls="controls" class="full-image" ng-src="{{two_icon.audio | trustUrl }}" ></audio>
+					</div>
+					<!-- ./audio -->
+
+					<!-- webview -->
+					<div class="item item-button"><button class="button button-colorful ink-dark" ng-click="openWebView(two_icon.Webview)">Webview</button></div>
+					<!-- ./webview -->
+			</div>
+			<br/><br/><br/>
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

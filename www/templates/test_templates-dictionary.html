@@ -1,0 +1,25 @@
+	<ion-view view-title=" dictionary" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"   id="page-dictionary" class=" page-dictionary">
+					
+			<div class="item-input-inset">
+				<label class="item-input-wrapper">
+				<i class="icon ion-ios-search placeholder-icon"></i>
+				<input ng-model="$root.filter_dictionarys" type="search" placeholder="Search"></label>
+			</div>
+			
+			<div class="list">
+				<div class="item item-text-wrap noborder" ng-repeat="item in data_dictionarys | filter:filter_dictionarys | limitTo:20:0 as results" >
+					<strong ng-bind-html="item.word | to_trusted"></strong> 
+					<span>mean{{item.mean}}</span>
+				</div>
+				<div class="item noborder" ng-if="results.length == 0" >
+					<p>{{ 'No results found...!' | translate }}</p>
+				</div>
+			</div>
+
+
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

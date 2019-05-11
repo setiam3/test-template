@@ -1,0 +1,27 @@
+	<ion-view view-title=" Slidebox" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"  scroll="true"  overflow-scroll="true"   id="page-slidebox" class="fullscreen page-slidebox">
+		
+			<!-- code refresh -->
+			<ion-refresher pulling-text="{{ 'Pull to refresh...' | translate }}"  on-refresh="doRefresh()"></ion-refresher>
+			<!-- ./code refresh -->
+			
+
+			<!-- code listing -->
+			<ion-slide-box show-pager="true" auto-play="true" pager-click="true" >
+					<ion-slide ng-repeat="item in slideboxs | limitTo : 5:0" style="background: #999  url('{{item.Images}}')  no-repeat center center fixed;;background-size:cover;width:100%;height:100%;background-color:#ddd;" >
+						<div class="padding text-center light">
+							<div class="padding light dark-bg" style="opacity:0.8;margin-top:80px">
+								<h4 ng-bind-html="item.Title | to_trusted"></h4>
+								<p>text{{item.Text}}</p>
+								<a class="button button-energized-900" ng-href="#/test_templates/slidebox_singles/{{item.ID}}" >Readmore</a>
+							</div>
+						</div>
+					</ion-slide>
+			</ion-slide-box>
+			<!-- ./code listing -->
+
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

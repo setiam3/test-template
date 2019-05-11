@@ -1,0 +1,45 @@
+	<ion-view view-title=" GMAP" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"   id="page-gmap" class=" page-gmap">
+		
+			<!-- code refresh -->
+			<ion-refresher pulling-text="{{ 'Pull to refresh...' | translate }}"  on-refresh="doRefresh()"></ion-refresher>
+			<!-- ./code refresh -->
+			
+
+			<ion-list class="padding gmapmarker-search" >
+				<div class="item item-input">
+					<i class="icon ion-search placeholder-icon"></i>
+					<input type="search" ng-model="filter_gmaps" placeholder="{{ 'Search' | translate }}" aria-label="filter gmaps" />
+				</div>
+			</ion-list>
+
+			<ng-map draggable="true" class="gmapmarker-map" zoom="11" center="48.85693,2.3412" width="100%" height="100%" default-style="false">
+				<marker ng-repeat="item in data_gmaps | filter:filter_gmaps as results" on-click="openModal($event)" position="{{item.location}}" clickable="true" id="{{item.id}}" ></marker>
+			</ng-map>
+
+
+			<script id="gmap-single.html" type="text/ng-template">
+				<ion-modal-view>
+					<ion-header-bar class="bar bar-header light bar-assertive-900">
+						<div class="header-item title">{{ gmap.title | to_trusted }}</div>
+						<div class="buttons buttons-right header-item"><span class="right-buttons"><button class="button button-icon button-clear ion-close ink-black" ng-click="modal.hide()"></button></span></div>
+					</ion-header-bar>
+					<ion-content>
+
+					<!-- heading-1 -->
+					<div class="item item-divider"  ng-bind-html="gmap.title | to_trusted">{{gmap.title}}</div>
+					<!-- ./heading-1 -->
+
+					<!-- to_trusted -->
+					<div class="item item-text-wrap noborder to_trusted {{ fontsize }}" ng-bind-html="gmap.address | strHTML"></div>
+					<!-- ./to_trusted -->
+					</ion-content>
+				</ion-modal-view>
+			</script>
+
+
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

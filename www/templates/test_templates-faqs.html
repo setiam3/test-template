@@ -1,0 +1,56 @@
+	<ion-view view-title=" FAQs" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"   id="page-faqs" class=" page-faqs">
+		
+			<!-- code refresh -->
+			<ion-refresher pulling-text="{{ 'Pull to refresh...' | translate }}"  on-refresh="doRefresh()"></ion-refresher>
+			<!-- ./code refresh -->
+			
+
+			<!-- code search -->
+			<ion-list class="card list" >
+				<div class="item item-input">
+					<i class="icon ion-search placeholder-icon"></i>
+					<input type="search" ng-model="filter_faqss" placeholder="{{ 'Search' | translate }}" aria-label="filter faqss" />
+				</div>
+			</ion-list>
+			<!-- ./code search -->
+
+
+			<!-- code listing -->
+			<ion-list class="list">
+				<div class="card"  ng-repeat="item in faqss | filter:filter_faqss as results" ng-init="$last ? fireEvent() : null"   >
+					<ion-item class="item item-colorful noborder" ng-click="toggleGroup(item)" ng-class="{active: isGroupShown(item)}" >
+						<i class="icon" ng-class="isGroupShown(item) ? 'ion-minus' : 'ion-plus'"></i>
+						&nbsp;
+						<span ng-bind-html="item.question | to_trusted"></span>
+					</ion-item>
+					<ion-item class="item item-text-wrap" ng-show="isGroupShown(item)">
+						<p >
+						answers{{item.answer}}
+						</p>
+					</ion-item>
+				</div>
+			</ion-list>
+			<!-- ./code listing -->
+			<!-- code infinite scroll -->
+			<ion-list class="list">
+				<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="onInfinite()" distance="5px" ng-if="hasMoreData"></ion-infinite-scroll>
+			</ion-list>
+			<!-- ./code infinite scroll -->
+
+
+			<!-- code search result not found -->
+			<ion-list class="list">
+				<div class="item" ng-if="results.length == 0" >
+					<p>{{ 'No results found...!' | translate }}</p>
+				</div>
+			</ion-list>
+			<!-- code search result not found -->
+
+
+
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

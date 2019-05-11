@@ -1,0 +1,58 @@
+	<ion-view view-title=" {{ avatar.Title }}" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"  scroll="true"   id="page-avatar_singles" class="page-avatar_singles">
+		
+			<ion-refresher pulling-text="Pull to refresh..."  on-refresh="doRefresh()"></ion-refresher>
+			<div class="tabs tabs-colorful tabs-icon-top static">
+				<a ng-click="$ionicGoBack()" class="tab-item">
+					<i class="icon ion-ios-albums-outline"></i> {{ 'List' | translate }}
+				</a>
+				<a class="tab-item tab-item-active active">
+					<i class="icon ion-ios-list-outline"></i> {{ 'Detail' | translate }}
+				</a>
+				</div>
+			<div class="list ">
+
+					<!-- id -->
+					<!-- ./id -->
+
+					<!-- slidebox -->
+					<div class="item item-text-wrap noborder to_trusted">
+					<div class="slideshow_container to_trusted" ng-if="avatar.cover" >
+							<ion-slides options="{slidesPerView:1}" slider="data.slider" class="slideshow">
+								<ion-slide-page class="slideshow-item" ng-repeat="slide_item in avatar.cover | strExplode:'|' track by $index" >
+									<div class="item-text-wrap" ng-bind-html="slide_item | to_trusted"></div>
+								</ion-slide-page>
+							</ion-slides>
+					</div>
+					</div>
+					<!-- ./slidebox -->
+
+					<!-- heading-1 -->
+					<div class="item item-divider"  ng-bind-html="avatar.Title | to_trusted">{{avatar.Title}}</div>
+					<!-- ./heading-1 -->
+
+					<!-- images -->
+					<!-- ./images -->
+
+					<!-- video -->
+					<div class="item noborder" ng-if="avatar.video">
+					<div class="embed_container"><video controls="controls" ng-src="{{avatar.video | trustUrl }}"></video></div>
+					</div>
+					<!-- ./video -->
+
+					<!-- text -->
+					<div class="item"><span class="subdued" >Lorem: <strong>{{avatar.Text}}</strong></span></div>
+					<!-- ./text -->
+
+					<!-- share_link -->
+					<div class="item">
+						<button run-social-sharing message="{{ avatar.Share }}" class="button button-small ion-android-share-alt button-outline button-positive icon-left">Share</button>
+					</div>
+					<!-- ./share_link -->
+			</div>
+			<br/><br/><br/>
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

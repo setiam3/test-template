@@ -1,0 +1,51 @@
+	<ion-view view-title=" {{ one_icon.Title }}" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"  scroll="true"   id="page-one_icon_singles" class="page-one_icon_singles">
+		
+			<ion-refresher pulling-text="Pull to refresh..."  on-refresh="doRefresh()"></ion-refresher>
+			<div class="hero slide-up colorful-bg" style="background-image: url('data/images/background/bg0.jpg');">
+				<div class="padding-horizontal padding-bottom content">
+					<img alt="" class="avatar" ng-src="{{one_icon.Images}}" />
+					<h3><a class="light" ng-bind-html="one_icon.Title | strHTML">{{ one_icon.Title }}</a></h3>
+					&nbsp;
+				</div>
+			</div>
+			<div class="tabs tabs-colorful tabs-icon-top static">
+				<a ng-click="$ionicGoBack()" class="tab-item">
+					<i class="icon ion-ios-albums-outline"></i> {{ 'List ' | translate }}
+				</a>
+				<a class="tab-item tab-item-active active">
+					<i class="icon ion-ios-list-outline"></i> {{ 'Detail' | translate }}
+				</a>
+				</div>
+			<div class="list ">
+
+					<!-- id -->
+					<!-- ./id -->
+
+					<!-- heading-1 -->
+					<div class="item item-divider"  ng-bind-html="one_icon.Title | to_trusted">{{one_icon.Title}}</div>
+					<!-- ./heading-1 -->
+
+					<!-- to_trusted -->
+					<div class="item item-text-wrap noborder to_trusted {{ fontsize }}" ng-bind-html="one_icon.Text | strHTML"></div>
+					<!-- ./to_trusted -->
+
+					<!-- ytube -->
+					<div class="item noborder" ng-if="one_icon.youtube"><div class="embed_container"><iframe width="100%" ng-src="{{ 'https://www.youtube.com/embed/' + one_icon.youtube | trustUrl }}" frameborder="0" allowfullscreen></iframe></div></div>
+					<!-- ./ytube -->
+
+					<!-- images -->
+					<!-- ./images -->
+
+					<!-- share_link -->
+					<div class="item">
+						<button run-social-sharing message="{{ one_icon.link }}" class="button button-small ion-android-share-alt button-outline button-positive icon-left">Share Link</button>
+					</div>
+					<!-- ./share_link -->
+			</div>
+			<br/><br/><br/>
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

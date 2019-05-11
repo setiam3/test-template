@@ -1,0 +1,28 @@
+	<ion-view view-title=" {{ slidebox.Title }}" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"  scroll="true"   id="page-slidebox_singles" class="page-slidebox_singles">
+		
+			<ion-refresher pulling-text="Pull to refresh..."  on-refresh="doRefresh()"></ion-refresher>
+			<div class="list ">
+
+					<!-- heading-1 -->
+					<div class="item item-divider"  ng-bind-html="slidebox.Title | to_trusted">{{slidebox.Title}}</div>
+					<!-- ./heading-1 -->
+
+					<!-- text -->
+					<div class="item"><span class="subdued" >text{{slidebox.Text}}</span></div>
+					<!-- ./text -->
+
+					<!-- images -->
+					<div class="item noborder"><img class="full-image" ng-src="{{slidebox.Images}}"  zoom-view="true" zoom-src="{{slidebox.Images}}"/></div>
+					<!-- ./images -->
+
+					<!-- link -->
+					<div class="item item-button"><a class="button button-energized-900 ink-dark" ng-click="openURL(slidebox.Link)">link</a></div>
+					<!-- ./link -->
+			</div>
+			<br/><br/><br/>
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

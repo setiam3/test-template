@@ -1,0 +1,63 @@
+	<ion-view view-title=" {{ button.Title }}" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"  scroll="true"   id="page-button_singles" class="page-button_singles">
+		
+			<ion-refresher pulling-text="Pull to refresh..."  on-refresh="doRefresh()"></ion-refresher>
+			<div class="hero slide-up positive-900-bg" style="background-image: url('data/images/background/bg0.jpg');">
+				<div class="padding-horizontal padding-bottom content">
+					<img alt="" class="avatar" ng-src="{{button.images_url}}" />
+					<h3><a class="light"  ng-bind-html="button.Title | strHTML" >{{ button.Title }}</a></h3>
+					<h4 class="light">&nbsp;</h4>
+				</div>
+			</div>
+			<div class="tabs tabs-colorful tabs-icon-top static">
+				<a ng-click="$ionicGoBack()" class="tab-item">
+					<i class="icon ion-ios-albums-outline"></i> {{ 'List' | translate }}
+				</a>
+				<a class="tab-item tab-item-active active">
+					<i class="icon ion-ios-list-outline"></i> {{ 'Detail' | translate }}
+				</a>
+				</div>
+			<div class="list ">
+
+					<!-- id -->
+					<!-- ./id -->
+
+					<!-- heading-1 -->
+					<div class="item item-divider"  ng-bind-html="button.Title | to_trusted">{{button.Title}}</div>
+					<!-- ./heading-1 -->
+
+					<!-- gmap -->
+					<div class="item noborder">
+						<div ng-if="mapEnable" class="embed_container" data-tap-disabled="true">
+							<ng-map zoom="16" width="100%" center="{{button.gmap}}">
+								<marker position="{{button.gmap}}" ></marker>
+							</ng-map>
+						</div>
+					</div>
+					<!-- ./gmap -->
+
+					<!-- images -->
+					<!-- ./images -->
+
+					<!-- video -->
+					<div class="item noborder" ng-if="button.video">
+					<div class="embed_container"><video controls="controls" ng-src="{{button.video | trustUrl }}"></video></div>
+					</div>
+					<!-- ./video -->
+
+					<!-- to_trusted -->
+					<div class="item item-text-wrap noborder to_trusted {{ fontsize }}" ng-bind-html="button.Text | strHTML"></div>
+					<!-- ./to_trusted -->
+
+					<!-- share_link -->
+					<div class="item">
+						<button run-social-sharing message="{{ button.Share }}" class="button button-small ion-android-share-alt button-outline button-positive icon-left">Share</button>
+					</div>
+					<!-- ./share_link -->
+			</div>
+			<br/><br/><br/>
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

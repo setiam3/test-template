@@ -1,0 +1,79 @@
+<ion-side-menus enable-menu-with-back-views="false">
+	<ion-side-menu-content>
+		<ion-nav-bar ng-show="$root.headerExists" id="navbar-right-top" class="page-title bar-positive-900">
+			<ion-nav-back-button></ion-nav-back-button>
+			<ion-nav-buttons side="left">
+				<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+			</ion-nav-buttons>
+			<ion-nav-buttons side="right">
+				<button class="button button-icon button-clear ion-android-more-vertical" id="menu-popover" ng-click="popover.show($event)"></button>
+			</ion-nav-buttons>
+		</ion-nav-bar>
+		<ion-nav-view name="fabButtonUp"></ion-nav-view>
+		<ion-nav-view animation="none" name="test_templates-side_menus"></ion-nav-view>
+	</ion-side-menu-content>
+	<ion-side-menu side="left">
+		<ion-header-bar class="text-center expanded positive-900-bg">
+			<img ng-src="{{ appLogo | trustUrl }}" class="avatar motion spin fade" />
+			<div class="menu-bottom"><span ng-bind-html="appName | strHTML"></span><br/></div>
+		</ion-header-bar>
+		<ion-content class="has-expanded-header light-bg energized-900">
+			<ion-list class="list" >
+				<ion-item ng-hide="hide_menu_template_listing" class="item item-divider text-left" >
+					 {{ "Template Listing" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_avatar"  class="menu-avatar item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.avatar">
+					<i class="icon ion-android-happy"></i> {{ "Avatar" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_gallery"  class="menu-gallery item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.gallery">
+					<i class="icon ion-android-image"></i> {{ "Gallery" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_one_icon"  class="menu-one_icon item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.one_icon">
+					<i class="icon ion-ios-albums-outline"></i> {{ "One Icon" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_two_icon"  class="menu-two_icon item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.two_icon">
+					<i class="icon ion-ios-color-filter-outline"></i> {{ "Two Icon" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_thumbnail1"  class="menu-thumbnail1 item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.thumbnail1">
+					<i class="icon ion-speedometer"></i> {{ "Thumbnail1" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_slidebox"  class="menu-slidebox item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.slidebox">
+					<i class="icon ion-social-dropbox"></i> {{ "Slidebox" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_button"  class="menu-button item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.button">
+					<i class="icon ion-android-funnel"></i> {{ "Button" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_new_templates" class="item item-divider text-left" >
+					 {{ "New Templates" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_homepage"  class="menu-homepage item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.homepage">
+					<i class="icon ion-android-document"></i> {{ "Homepage" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_thumbnail2"  class="menu-thumbnail2 item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.thumbnail2">
+					<i class="icon ion-android-map"></i> {{ "Thumbnail2" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_thumbnail3"  class="menu-thumbnail3 item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.thumbnail3">
+					<i class="icon ion-android-desktop"></i> {{ "Thumbnail3" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_slidebox_media"  class="menu-slidebox_media item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.slidebox_media">
+					<i class="icon ion-android-bulb"></i> {{ "Slidebox Media" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_card_showcase"  class="menu-card_showcase item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.card_showcase">
+					<i class="icon ion-android-clipboard"></i> {{ "Card Showcase" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_tables"  class="menu-tables item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.tables">
+					<i class="icon ion-android-apps"></i> {{ "Tables" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_gmap"  class="menu-gmap item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.gmap">
+					<i class="icon ion-android-pin"></i> {{ "GMAP" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_faqs"  class="menu-faqs item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.faqs">
+					<i class="icon ion-android-bulb"></i> {{ "FAQs" | translate }}
+				</ion-item>
+				<ion-item ng-hide="hide_menu_dictionary"  class="menu-dictionary item-sidebar item item-icon-left text-left dark-ink" nav-clear="" menu-close="" ui-sref="test_templates.dictionary">
+					<i class="icon ion-android-apps"></i> {{ "Dictionary" | translate }}
+				</ion-item>
+			</ion-list>
+		</ion-content>
+	</ion-side-menu>
+</ion-side-menus>
